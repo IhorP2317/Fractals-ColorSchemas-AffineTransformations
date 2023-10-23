@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./script.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>PixelVista Learning Hub</title>
+  </head>
+    <body>
+        <header class="header-body">
+            <nav class="header-content">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li id="activity-link" class="activity-link current-page">
+                <a href="#">Activity</a>
+                <div class="activities-dropdown-body" id ="activities-dropdown-body">
+                    <ul class="activities-dropdown-content">
+                    <li><a href="./fractals.html">Creating fractals</a></li>
+                    <li><a href="#">Work with color systems</a></li>
+                    <li><a href="#">Affine transformation of shapes</a></li>
+                    </ul>
+                </div>
+                </li>
+                <li><a href="#">Definitions</a></li>
+                <li><a href="#">About us</a></li>
+            </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="main-content">
+                <div class="fractals-interaction">
+                    <h1>Fractals</h1>
+                    <p>Create your fractals super fast</p>
+
+                    <select class="choose-fractal-type" id="choose-fractal-type">
+                        <option value="" disabled selected hidden>Choose fractal type</option>
+                        <option value="mandelbrot">Ch z</option>
+                        <option value="julia">sinz + cosz</option>
+                        <option value="koch-snowflake">Koch Snowflake</option>
+                    </select>
+
+                    <div class="fractals-parameters-container">
+
+                    </div>
+
+                    <button id ="primary-button" class="primary-button">Save image</button>
+                </div>
+                <div class="fractals-result">
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

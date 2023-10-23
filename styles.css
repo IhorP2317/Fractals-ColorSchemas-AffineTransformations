@@ -4,8 +4,7 @@ body {
   font-family: sans-serif;
 }
 
-ul,
-li {
+ul, li {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -71,9 +70,11 @@ li {
   padding: 0;
   display: none;
 }
-.activities-dropdown-body active {
+
+.activities-dropdown-body.active {
   display: block;
 }
+
 .activities-dropdown-content {
   display: flex;
   flex-direction: column;
@@ -107,7 +108,7 @@ li {
   flex: 1; /* Grow to fill available space */
   padding: 0 5% 0 5%; /* Remove padding, you can adjust as needed */
 }
-.introduction h1 {
+.introduction .introduction-title {
   font-size: 48px;
 }
 .introduction-image {
@@ -144,3 +145,43 @@ li {
   color: #ba4ce6;
   border-color: #ffffff;
 }
+
+.fractals-interaction {
+  flex: 1; /* Grow to fill available space */
+  padding: 1% 0 0 3%; /* Remove padding, you can adjust as needed */
+}
+
+.choose-fractal-type {
+  width: 359px;
+  height: 47px;
+  padding: 10px;
+  color: white;
+  background-color: #ba4ce6;
+  border-radius: 12px;
+  font-size: 16px;
+  position: relative;
+}
+
+.fractals-parameters-container {
+  width: 650px;
+  height: 230px;
+  border: 3px solid #ba4ce6;
+  border-radius: 22px;
+  margin: 3% 0;
+}
+
+.choose-fractal-type::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  border-right: 1px solid #ba4ce6; /* Adjust the color as needed */
+  pointer-events: none; /* Prevent the line from blocking clicks */
+}
+
+
+
+
+
