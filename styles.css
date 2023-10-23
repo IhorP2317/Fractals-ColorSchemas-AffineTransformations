@@ -1,0 +1,146 @@
+body {
+  background-color: #ffffff;
+  margin: 0; /* Remove default margin to fit the content to the viewport */
+  font-family: sans-serif;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header-body {
+  background: linear-gradient(to right, #b539e7 0%, #e39eff 100%);
+}
+
+.header-content {
+  display: flex;
+  justify-content: left; /* Center align the list items horizontally */
+  padding: 2% 0;
+  margin-left: 2%;
+}
+
+.header-content ul {
+  display: flex; /* Display the list items in a row */
+  justify-content: left; /* Center align the list items horizontally */
+  position: relative;
+}
+
+.header-content li {
+  margin: 0 35px;
+  position: relative;
+  padding-bottom: 2%;
+}
+
+.header-content li.current-page::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  bottom: 0px; /* Adjust the margin-top as needed */
+  left: 0;
+  background-color: #ffffff;
+}
+.header-content li.activity-link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid #ffffff;
+  top: 18%; /* Position the arrow just below the list item */
+  left: 118%;
+  transform: translateX(-50%);
+}
+
+.header-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.activities-dropdown-body {
+  width: 250px;
+  height: 135px;
+  border-radius: 12px;
+  padding: 26px 21px;
+  background-color: #ba4ce6;
+  position: absolute;
+  padding: 0;
+  display: none;
+}
+.activities-dropdown-body active {
+  display: block;
+}
+.activities-dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.activities-dropdown-content li {
+  padding: 10px 0;
+  border-radius: 2px;
+  position: relative;
+}
+.activities-dropdown-content li::after {
+  content: "";
+  display: block;
+  width: 250px;
+  height: 1px;
+  background-color: #fff; /* Adjust the color as needed */
+  position: absolute;
+  bottom: 0;
+  left: -35px;
+}
+.activities-dropdown-content li:last-child::after {
+  display: none;
+}
+.main-content {
+  display: flex;
+  justify-content: space-between; /* Spread the elements apart */
+  padding: 1% 2%;
+}
+
+.introduction {
+  flex: 1; /* Grow to fill available space */
+  padding: 0 5% 0 5%; /* Remove padding, you can adjust as needed */
+}
+.introduction h1 {
+  font-size: 48px;
+}
+.introduction-image {
+  flex: 1;
+  padding-top: 5%; /* Grow to fill available space */
+  /* You can add padding or styles as needed */
+}
+.introduction-image img {
+  height: 85%;
+  width: 80%;
+}
+
+.introduction-buttons a {
+  color: #ba4ce6;
+  text-decoration: none;
+  margin: 0 5%;
+}
+.primary-button {
+  background-color: #ba4ce6;
+  border-radius: 12px;
+  width: 105px;
+  height: 40px;
+  color: #ffffff;
+  border-color: #ba4ce6;
+}
+.primary-button:hover {
+  filter: saturate(60%); /* Decrease the color saturation on hover */
+}
+.secondary-button {
+  background-color: #ffffff;
+  border-radius: 12px;
+  width: 105px;
+  height: 40px;
+  color: #ba4ce6;
+  border-color: #ffffff;
+}
