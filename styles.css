@@ -69,6 +69,7 @@ ul, li {
   position: absolute;
   padding: 0;
   display: none;
+  z-index: 1;
 }
 
 .activities-dropdown-body.active {
@@ -180,7 +181,9 @@ ul, li {
   border-right: 1px solid #ba4ce6; /* Adjust the color as needed */
   pointer-events: none; /* Prevent the line from blocking clicks */
 }
-
+input[type="range"] {
+  width: 300px; /* Set the desired width for your slider */
+}
 
 
 
