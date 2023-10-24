@@ -88,7 +88,7 @@ const drawSinCosFractal = (zoom, iterations, hue) => {
 const axiom = 'F';
 const rule = 'F=F+F--F+F';
 const anglePlus = 85;
-const angleMinus = 85;
+const angleMinus = 85
 let currentSentence = axiom;
 let currentLength = 0;
 
@@ -125,16 +125,13 @@ function draw(width, height, rotationAngle = 0) {
 }
 
 function drawCezaroFractal(zoom, iteration, hue) {
+   const width = 800;
+   const height = 600;
    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   currentSentence = axiom;
 
-  console.log(canvasContainer.offsetWidth);
-  console.log(canvasContainer.offsetHeight);
-  console.log(canvas.width);
-  console.log(canvas.height);
-
-  const initialLength = (Math.min(canvasContainer.offsetWidth, canvasContainer.offsetHeight)) * zoom * Math.pow(0.725, -iteration)
+  const initialLength = (Math.min(canvas.width, canvas.height)) * zoom * Math.pow(0.725, -iteration)
   const a = initialLength * Math.pow(0.725, iteration)
   currentLength = initialLength
 
@@ -148,12 +145,12 @@ function drawCezaroFractal(zoom, iteration, hue) {
     ctx.strokeStyle  = color
   }
 
-  const centerDelta = (Math.abs(canvasContainer.offsetWidth - canvasContainer.offsetHeight) / 2) / zoom
+  const centerDelta = (Math.abs(canvas.width - canvas.height) / 2) / zoom
 
-  draw(canvas.width, - centerDelta, canvas.height, -90)
-  draw(canvas.width, - centerDelta, canvas.height - a, 180)
-  draw(canvas.width, - a - centerDelta, canvas.height, 0)
-  draw(canvas.width, - a - centerDelta, canvas.height - a, 21)
+  draw(canvas.width - centerDelta, canvas.height, -90)
+  draw(canvas.width - centerDelta, canvas.height - a, 180)
+  draw(canvas.width - centerDelta - a, canvas.height, 0)
+  draw(canvas.width - centerDelta - a, canvas.height - a, 90)
 }
 
 
