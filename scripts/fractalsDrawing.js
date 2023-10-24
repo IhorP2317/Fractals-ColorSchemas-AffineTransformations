@@ -1,3 +1,4 @@
+const canvasContainer = document.getElementById("fractals-result-container");
 const canvas = document.getElementById("fractalCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -98,7 +99,7 @@ function applyRules(sentence) {
     const regex = new RegExp(predecessor, 'g')
     sentence = sentence.replace(regex, successor)
   }
-  return sentence
+  return sentence;
 }
 
 function draw(width, height, rotationAngle = 0) {
@@ -109,7 +110,7 @@ function draw(width, height, rotationAngle = 0) {
 
     for (const char of currentSentence) {
       if (char === 'F') {
-        ctx.moveTo(0, 0)
+        ctx.moveTo(0, 0);
         ctx.lineTo(0, -currentLength)
         ctx.translate(0, -currentLength)
       } else if (char === '+') {
@@ -123,34 +124,40 @@ function draw(width, height, rotationAngle = 0) {
     ctx.restore()
 }
 
-function drawCezaroFractal(zoomLevel, iterations, hue) {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function drawCezaroFractal(zoom, iteration, hue) {
+   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   currentSentence = axiom;
 
-  const initialLength = (Math.min(canvas.width, canvas.heigth)) * zoomLevel
-  * Math.pow(0.725, -iterations)
-  const a = initialLength * Math.pow(0.725, iterations)
+  console.log(canvasContainer.offsetWidth);
+  console.log(canvasContainer.offsetHeight);
+  console.log(canvas.width);
+  console.log(canvas.height);
+
+  const initialLength = (Math.min(canvasContainer.offsetWidth, canvasContainer.offsetHeight)) * zoom * Math.pow(0.725, -iteration)
+  const a = initialLength * Math.pow(0.725, iteration)
   currentLength = initialLength
 
-  for (let i = 0; i < iterations; i++) {
+  for (let i = 0; i < iteration; i++) {
     currentSentence = applyRules(currentSentence)
     currentLength /= 3 // Reduce the length for each iteration
   }
 
   const color = `hsl(${hue}, ${100}%, 50%)`
-
   if (ctx) {
     ctx.strokeStyle  = color
   }
 
-  const centerDelta = (Math.abs(canvas.width - canvas.heigth) / 2) / zoomLevel
+  const centerDelta = (Math.abs(canvasContainer.offsetWidth - canvasContainer.offsetHeight) / 2) / zoom
 
-  draw(canvas.width, - centerDelta, canvas.heigth, -90)
-  draw(canvas.width, - centerDelta, canvas.heigth - a, 180)
-  draw(canvas.width, - a - centerDelta, canvas.heigth, 0)
-  draw(canvas.width, - a - centerDelta, canvas.heigth - a, 90)
+  draw(canvas.width, - centerDelta, canvas.height, -90)
+  draw(canvas.width, - centerDelta, canvas.height - a, 180)
+  draw(canvas.width, - a - centerDelta, canvas.height, 0)
+  draw(canvas.width, - a - centerDelta, canvas.height - a, 21)
 }
+
+
+
 
 
 

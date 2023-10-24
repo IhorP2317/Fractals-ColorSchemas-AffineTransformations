@@ -122,6 +122,18 @@ hueSlider.addEventListener("mouseup", function() {
   setFractalParametersToLocalStorage();
 });
 
+zoomSlider.addEventListener("input", function() {
+  updateSliderValueLabel(zoomSlider, zoomSliderLabel);
+});
+
+iterationSlider.addEventListener("input", function() {
+  updateSliderValueLabel(iterationSlider, iterationSliderLabel);
+});
+
+hueSlider.addEventListener("input", function() {
+  updateSliderValueLabel(hueSlider, hueSliderLabel);
+});
+
 chooseFractalTypeSelect.addEventListener("change", function() {
   const selectedOption = chooseFractalTypeSelect.value;
 
