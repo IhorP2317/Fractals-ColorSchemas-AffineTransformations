@@ -1,7 +1,9 @@
-*,*:before,*:after{
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -10,7 +12,8 @@ body {
   font-family: sans-serif;
 }
 
-ul, li {
+ul,
+li {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -175,7 +178,7 @@ ul, li {
   background-color: #ba4ce6 !important;
   border-radius: 12px;
   font-size: 16px;
-  outline:none;
+  outline: none;
 }
 
 .fractals-parameters-container {
@@ -209,7 +212,7 @@ ul, li {
   color: #ba4ce6;
   border: 2px solid #ba4ce6;
   box-shadow: none;
-  transition: background-color 0.3s; 
+  transition: background-color 0.3s;
 }
 
 .secondary-button:hover {
@@ -217,7 +220,6 @@ ul, li {
   color: #ba4ce6; /* Change the text color on hover */
   border-color: #ba4ce6; /* Change the border color on hover */
 }
-
 
 .fractals-result-container {
   width: 470px;
@@ -232,7 +234,7 @@ ul, li {
   -webkit-appearance: none; /* Remove default styles for WebKit browsers */
   width: 100%; /* Set the width of the input */
   height: 7px; /* Set the height of the track */
-  background: #D9D9D9; /* Set the track's background color to gray */
+  background: #d9d9d9; /* Set the track's background color to gray */
   border-radius: 12px; /* Round the track */
 }
 
@@ -251,7 +253,6 @@ ul, li {
   height: 20px;
 }
 
-
 .slider-value-label {
   text-align: center;
 }
@@ -267,7 +268,7 @@ ul, li {
     indigo,
     violet,
     red
-  ) !important; 
+  ) !important;
 }
 
 .fa-solid {
@@ -279,14 +280,3 @@ ul, li {
   height: 100%;
   display: block; /* Ensures the canvas uses the entire space */
 }
-
-
-
-
-
-
-
-
-
-
-

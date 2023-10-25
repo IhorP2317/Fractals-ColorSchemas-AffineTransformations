@@ -7,7 +7,6 @@ const hueSlider = document.getElementById("hue-slider");
 const clearButton = document.getElementById("clear-button");
 const chooseFractalTypeSelect = document.getElementById("choose-fractal-type");
 
-
 const ChZSlidersConfig = {
   zoomSliderDefaultValue: 1,
   zoomSliderMaxValue: 100,
@@ -16,7 +15,7 @@ const ChZSlidersConfig = {
   iterationSliderMaxValue: 100,
 
   hueSliderDefaultValue: 180,
-}
+};
 
 const sinZCosZSlidersConfig = {
   zoomSliderDefaultValue: 1,
@@ -26,7 +25,7 @@ const sinZCosZSlidersConfig = {
   iterationSliderMaxValue: 100,
 
   hueSliderDefaultValue: 180,
-}
+};
 
 const CutSlidersConfig = {
   zoomSliderDefaultValue: 1,
@@ -34,9 +33,9 @@ const CutSlidersConfig = {
 
   iterationSliderDefaultValue: 6,
   iterationSliderMaxValue: 6,
-  
-  hueSliderDefaultValue: 180
-}
+
+  hueSliderDefaultValue: 180,
+};
 
 const DefaultSlidersConfig = {
   zoomSliderDefaultValue: 1,
@@ -45,20 +44,20 @@ const DefaultSlidersConfig = {
   iterationSliderDefaultValue: 0,
   iterationSliderMaxValue: 100,
 
-  hueSliderDefaultValue: 0
-}
+  hueSliderDefaultValue: 0,
+};
 
 function setFractalParametersToLocalStorage() {
-  localStorage.setItem("iteration", iterationSliderLabel.textContent)
-  localStorage.setItem("zoom", zoomSliderLabel.textContent)
-  localStorage.setItem("hue", hueSliderLabel.textContent)
+  localStorage.setItem("iteration", iterationSliderLabel.textContent);
+  localStorage.setItem("zoom", zoomSliderLabel.textContent);
+  localStorage.setItem("hue", hueSliderLabel.textContent);
 }
 
 function watchAnyObject(
   object = {},
   methods = [],
   callbackBefore = function () {},
-  callbackAfter = function () {},
+  callbackAfter = function () {}
 ) {
   for (let method of methods) {
     const original = object[method].bind(object);
@@ -72,104 +71,116 @@ function watchAnyObject(
   }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   localStorage.setItem("choosedFractalType", "none");
   setFractalParametersToLocalStorage();
 
-  watchAnyObject(window.localStorage,['setItem'], (method, key, ...args) => {
-    if(key == "hue") {
+  watchAnyObject(window.localStorage, ["setItem"], (method, key, ...args) => {
+    if (key == "hue") {
       console.log("check fractal type");
 
       const fractalType = localStorage.getItem("choosedFractalType");
       console.log("chosed fractal type: " + fractalType);
 
-      switch(fractalType) {
-        case "Cut": 
+      switch (fractalType) {
+        case "Cut":
           console.log("draw cut type");
-          drawCezaroFractal(localStorage.getItem("zoom"), localStorage.getItem("iteration"), localStorage.getItem("hue"));
+          drawCezaroFractal(
+            localStorage.getItem("zoom"),
+            localStorage.getItem("iteration"),
+            localStorage.getItem("hue")
+          );
           break;
-    
+
         case "sinz + cosz":
-          console.log("draw sinz + cosz")
-          drawSinCosFractal(localStorage.getItem("zoom"), localStorage.getItem("iteration"), localStorage.getItem("hue"));
+          console.log("draw sinz + cosz");
+          drawSinCosFractal(
+            localStorage.getItem("zoom"),
+            localStorage.getItem("iteration"),
+            localStorage.getItem("hue")
+          );
           break;
-    
+
         case "Ch z":
-          console.log("draw Ch z")
-          drawChFractal(localStorage.getItem("zoom"), localStorage.getItem("iteration"), localStorage.getItem("hue"));
+          console.log("draw Ch z");
+          drawChFractal(
+            localStorage.getItem("zoom"),
+            localStorage.getItem("iteration"),
+            localStorage.getItem("hue")
+          );
           break;
-      } 
+      }
     }
-  }, );
+  });
 });
 
 function updateSliderValueLabel(slider, label) {
   label.textContent = slider.value;
 }
 
-zoomSlider.addEventListener("mouseup", function() {
+zoomSlider.addEventListener("mouseup", function () {
   updateSliderValueLabel(zoomSlider, zoomSliderLabel);
   setFractalParametersToLocalStorage();
 });
 
-iterationSlider.addEventListener("mouseup", function() {
+iterationSlider.addEventListener("mouseup", function () {
   updateSliderValueLabel(iterationSlider, iterationSliderLabel);
   setFractalParametersToLocalStorage();
 });
 
-hueSlider.addEventListener("mouseup", function() {
+hueSlider.addEventListener("mouseup", function () {
   updateSliderValueLabel(hueSlider, hueSliderLabel);
   setFractalParametersToLocalStorage();
 });
 
-zoomSlider.addEventListener("input", function() {
+zoomSlider.addEventListener("input", function () {
   updateSliderValueLabel(zoomSlider, zoomSliderLabel);
 });
 
-iterationSlider.addEventListener("input", function() {
+iterationSlider.addEventListener("input", function () {
   updateSliderValueLabel(iterationSlider, iterationSliderLabel);
 });
 
-hueSlider.addEventListener("input", function() {
+hueSlider.addEventListener("input", function () {
   updateSliderValueLabel(hueSlider, hueSliderLabel);
 });
 
-chooseFractalTypeSelect.addEventListener("change", function() {
+chooseFractalTypeSelect.addEventListener("change", function () {
   const selectedOption = chooseFractalTypeSelect.value;
 
   localStorage.setItem("choosedFractalType", selectedOption);
-  
-  switch(selectedOption) {
-    case "Cut": 
-      setValuesOfSlidersFromConfig(CutSlidersConfig)
+
+  switch (selectedOption) {
+    case "Cut":
+      setValuesOfSlidersFromConfig(CutSlidersConfig);
       break;
 
     case "sinz + cosz":
-      setValuesOfSlidersFromConfig(sinZCosZSlidersConfig)
+      setValuesOfSlidersFromConfig(sinZCosZSlidersConfig);
       break;
 
     case "Ch z":
-      setValuesOfSlidersFromConfig(ChZSlidersConfig)
+      setValuesOfSlidersFromConfig(ChZSlidersConfig);
       break;
   }
 
   setFractalParametersToLocalStorage();
-})
+});
 
 clearButton.addEventListener("click", () => {
   const fractalType = localStorage.getItem("choosedFractalType");
 
-  switch(fractalType) {
-    case "Cut": 
-      setValuesOfSlidersFromConfig(CutSlidersConfig)
+  switch (fractalType) {
+    case "Cut":
+      setValuesOfSlidersFromConfig(CutSlidersConfig);
       break;
 
     case "sinz + cosz":
-      setValuesOfSlidersFromConfig(sinZCosZSlidersConfig)
+      setValuesOfSlidersFromConfig(sinZCosZSlidersConfig);
       break;
 
     case "Ch z":
-      setValuesOfSlidersFromConfig(ChZSlidersConfig)
+      setValuesOfSlidersFromConfig(ChZSlidersConfig);
       break;
 
     case "none":
@@ -186,8 +197,8 @@ function setValuesOfSlidersFromConfig(config) {
 
   zoomSliderLabel.textContent = config.zoomSliderDefaultValue;
   zoomSlider.value = config.zoomSliderDefaultValue;
-  zoomSlider.max = config.zoomSliderMaxValue; 
-  
+  zoomSlider.max = config.zoomSliderMaxValue;
+
   hueSliderLabel.textContent = config.hueSliderDefaultValue;
   hueSlider.value = config.hueSliderDefaultValue;
 }
