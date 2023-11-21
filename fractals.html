@@ -3,12 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
-    <title>PixelVista Learning Hub</title>
+    <title>Fractals</title>
   </head>
   <body>
     <header class="header-body">
@@ -41,68 +38,38 @@
               Choose fractal type
             </option>
             <option value="Ch z">Ch z</option>
-            <option value="sinz + cosz">sinz + cosz</option>
+            <option value="sinz + cosz">sin z * cos z</option>
             <option value="Cut">Cut</option>
           </select>
           <div class="fractals-parameters-container">
             <div class="parametr-row">
-              <label>Iterations</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="1"
-                id="iteration-slider"
-                class="horizontal-slider"
-              />
-              <label class="slider-value-label" id="iteration-slider-value"
-                >0</label
-              >
+                <Label>Iterations</Label>
+                <input type=range min="0" max="100" value="0" step="1" id="iteration-slider" class="horizontal-slider">
+                <label class="slider-value-label" id="iteration-slider-value">0</label>
             </div>
 
             <div class="parametr-row">
-              <label>Hue</label>
-              <input
-                type="range"
-                min="0"
-                max="360"
-                value="0"
-                step="1"
-                id="hue-slider"
-                class="horizontal-slider colored"
-              />
+              <Label>Hue</Label>
+              <input type=range min="0" max="360" value="0" step="1" id="hue-slider" class="horizontal-slider colored">
               <label class="slider-value-label" id="hue-slider-value">0</label>
             </div>
 
             <div class="parametr-row">
-              <label>Zoom</label>
-              <input
-                type="range"
-                min="1"
-                max="10"
-                value="1"
-                step="1"
-                id="zoom-slider"
-                class="horizontal-slider"
-              />
+              <Label>Zoom</Label>
+              <input type =range min="1" max="10" value="1" step="1" id="zoom-slider" class="horizontal-slider">
               <label class="slider-value-label" id="zoom-slider-value">1</label>
             </div>
 
             <button id="clear-button" class="secondary-button">Clear</button>
           </div>
 
-          <button id="save-button" class="primary-button">
-            <span class="fa-solid fa-download"></span> Save image
-          </button>
+          <button id="save-button" class="primary-button"><span class="fa-solid fa-download"></span> Save image</button>
         </div>
         <div class="fractals-result">
-          <h1><br /></h1>
-          <p>Result</p>
-
-          <div class="fractals-result-container" id="fractals-result-container">
-            <canvas id="fractalCanvas" width="800" height="600"></canvas>
-          </div>
+          <p class="fractals-result-title">Result</p>
+            <div class="fractals-result-container" id="fractals-result-container">
+              <canvas id="fractalCanvas" width="800" height="600"></canvas> 
+            </div>
         </div>
       </div>
     </main>
