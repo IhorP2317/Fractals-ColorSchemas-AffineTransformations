@@ -198,10 +198,11 @@ ul, li {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin: 2% 0;
 }
 
 .parametr-row label {
-  width: 130px; /* Adjust the width as needed */
+  width: 170px; /* Adjust the width as needed */
   font-size: 20px;
 }
 
@@ -289,6 +290,82 @@ ul, li {
   width: 580px;
   text-align:
    left;
+}
+
+.color-type-label {
+  color: #ba4ce6;
+  font-size: 20px;
+}
+.colors-parameters-content {
+  width: 40%; /* Set the width to 50% to fill up the left half of the screen */
+  padding: 1% 0 0 3%; /* Remove padding, you can adjust as needed */
+}
+.HSL-parameters-container,
+.CMYK-parameters-container,
+.Saturation-parameters-container {
+  width: 100%;
+  border: 3px solid #ba4ce6;
+  border-radius: 22px;
+  margin: 1% 0 5% 0;
+  padding: 3% 0.5% 1.5% 3%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.black {
+  background-image: linear-gradient(to right, white, gray, black) !important;
+}
+
+.cyan {
+  background-image: linear-gradient(to right, white, cyan) !important;
+}
+
+.magenta {
+  background-image: linear-gradient(to right, white, magenta) !important;
+}
+
+.yellow {
+  background-image: linear-gradient(to right, white, yellow) !important;
+}
+
+.colors-output {
+  flex: 1;
+  width: 70%; /* Set the width to 70% to fill up the right side of the screen */
+  padding: 1% 3% 0 3%; /* Adjust padding as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.colors-interaction {
+  display: flex;
+  flex-direction: row;
+}
+.hsl-result-container{
+  width: 350px;
+  height: 350px;
+  border: 3px solid #ba4ce6;
+  border-radius: 22px;
+  overflow: hidden;
+  margin: 3% 0;
+}
+#hslCanvas {
+  width: 100%;
+  height: 100%;
+  display: block; /* Ensures the canvas uses the entire space */
+}
+.cmyk-result-container{
+  width: 470px;
+  height: 470px;
+  border: 3px solid #ba4ce6;
+  border-radius: 22px;
+  overflow: hidden;
+  margin: 3% 0;
+}
+#cmykCanvas {
+  width: 100%;
+  height: 100%;
+  display: block; /* Ensures the canvas uses the entire space */
 }
 
 
