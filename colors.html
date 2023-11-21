@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <title>PixelVista Learning Hub</title>
+  </head>
+  <body>
+    <header class="header-body">
+      <nav class="header-content">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li id="activity-link" class="activity-link current-page">
+            <a href="#">Activity</a>
+            <div class="activities-dropdown-body" id="activities-dropdown-body">
+              <ul class="activities-dropdown-content">
+                <li><a href="./fractals.html">Creating fractals</a></li>
+                <li><a href="./colors.html">Work with color systems</a></li>
+                <li><a href="#">Affine transformation of shapes</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#">Definitions</a></li>
+          <li><a href="#">About us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="colors-interaction">
+      <div class="colors-parameters-content">
+        <h1>Colors</h1>
+        <p>Create your color palette super fast</p>
+
+        <div class="HSL-parameters-container">
+          <label class="color-type-label">HSL</label>
+          <div class="parametr-row">
+            <label>Hue</label>
+            <input
+              type="range"
+              min="0"
+              max="360"
+              value="0"
+              step="1"
+              id="hsl-hue-slider"
+              class="horizontal-slider colored"
+            />
+            <label class="slider-value-label" id="hsl-hue-slider-value"
+              >0</label
+            >
+          </div>
+
+          <div class="parametr-row">
+            <label>Saturation</label>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+              step="1"
+              class="horizontal-slider"
+              id="hsl-saturation-slider"
+            />
+            <label class="slider-value-label" id="hsl-saturation-slider-value">0</label>
+          </div>
+
+          <div class="parametr-row">
+            <label>Lightness</label>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+              step="1"
+              id="hsl-lightness-slider"
+              class="horizontal-slider"
+            />
+            <label class="slider-value-label" id="hsl-lightness-slider-value">0</label>
+          </div>
+        </div>
+        <div class="CMYK-parameters-container">
+            <label class="color-type-label">CMYK</label>
+            <div class="parametr-row">
+              <label>Cyan</label>
+              <input
+              type="range" 
+              min="0" 
+              max="100" 
+              value="0"
+                class="horizontal-slider cyan"
+                id="cmyk-cyan-slider" 
+              />
+              <label class="slider-value-label" id="cmyk-cyan-slider-value"
+                >0</label>
+            </div>
+  
+            <div class="parametr-row">
+              <label>Magenta</label>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="0"
+                step="1"
+                class="horizontal-slider magenta"
+                id="cmyk-magenta-slider"
+              />
+              <label class="slider-value-label" id="cmyk-magenta-slider-value">0</label>
+            </div>
+  
+            <div class="parametr-row">
+              <label>Yellow</label>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="0"
+                step="1"
+                id="cmyk-yellow-slider"
+                class="horizontal-slider yellow"
+              />
+              <label class="slider-value-label" id="cmyk-yellow-slider-value">0</label>
+            </div>
+            <div class="parametr-row">
+                <label>Black</label>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="0"
+                  step="1"
+                  id="hsl-black-slider"
+                  class="horizontal-slider black"
+                />
+                <label class="slider-value-label" id="cmyk-black-slider-value">0</label>
+              </div>
+          </div>
+          <div class="Saturation-parameters-container">
+            <label class="color-type-label">Saturation</label>
+            <div class="parametr-row">
+              <label>Hue</label>
+              <input
+                type="range"
+                min="0"
+                max="360"
+                value="0"
+                step="1"
+                id="saturation-hue-slider"
+                class="horizontal-slider colored"
+              />
+              <label class="slider-value-label" id="saturation-hue-slider-value"
+                >0</label>
+            </div>
+  
+            <div class="parametr-row">
+              <label>Saturation</label>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="0"
+                step="1"
+                class="horizontal-slider"
+                id="hsl-saturation-slider"
+              />
+              <label class="slider-value-label" id="hsl-saturation-slider-value">0</label>
+            </div>
+          </div>
+      </div>
+      <div class="colors-result">
+        <div class="hsl-result">
+            <div class="hsl-result-container" id="hsl-result-container">
+                <canvas id="hslCanvas" ></canvas>
+              </div>
+              <input type="file" id="upload-input" style="display: none;">
+              <label for="upload-input" id="upload-label" class="secondary-button">
+                <span class="fa-solid fa-download"></span> Upload image
+            </label>
+            <button id="save-button-hsl" class="primary-button">
+                <span class="fa-solid fa-download"></span> Save image
+              </button>
+        </div>
+        <div class="cmyk-result">
+          <div class="cmyk-result-container" id="cmyk-result-container">
+            <canvas id="cmykCanvas" width="200" height="600"></canvas>
+          </div>
+            <button id="upload-button-cmyk" class="secondary-button">
+                <span class="fa-solid fa-download"></span> Upload image
+              </button>
+            <button id="save-button-cmyk" class="primary-button">
+                <span class="fa-solid fa-download"></span> Save image
+              </button>
+        </div>
+      </div>
+      </div>
+    </main>
+  </body>
+  <script src="./scripts/activityLink.js"></script>
+  <script src="./scripts/hslImageSelecting.js"></script>
+</html>
