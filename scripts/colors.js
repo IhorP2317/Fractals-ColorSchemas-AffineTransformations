@@ -1,5 +1,7 @@
 const beforeCanvas = document.getElementById("before-canvas");
+const afterCanvas = document.getElementById("after-canvas");
 const ctx = beforeCanvas.getContext("2d");
+
 const hslHueSlider = document.getElementById("hsl-hue-slider");
 const hslSaturationSlider = document.getElementById("hsl-saturation-slider");
 const hslLightnessSlider = document.getElementById("hsl-lightness-slider");
@@ -16,9 +18,13 @@ const cmykMagentaSliderLabel = document.getElementById("cmyk-magenta-slider-valu
 const cmykYellowSliderLabel = document.getElementById("cmyk-yellow-slider-value");
 const cmykBlackSliderLabel = document.getElementById("cmyk-black-slider-value");
 
-const afterCanvas = document.getElementById("after-canvas");
+const saturationHueSlider = document.getElementById("saturation-hue-slider");
+const saturationHueSliderLabel = document.getElementById("saturation-hue-slider-value");
 
-const saveButton = document.getElementById("save-button-after");
+const saturationSaturationSlider = document.getElementById("saturation-saturation-slider");
+const saturationSaturationSliderLabel = document.getElementById("saturation-saturation-slider-value");
+
+const saveButtonAfter = document.getElementById("save-button-after");
 
 //open chose resource on button clicked
 document.getElementById("upload-button")
@@ -33,46 +39,9 @@ document.getElementById("upload-input")
         uploadImageToBeforeCanvas(event);
     });
 
-beforeCanvas.addEventListener("mousemove", (event) => {
-    let rgb = getRGBAForPixelOnBeforeCanvas(event);
-    console.log(rgb);
-    let hsl = rgbToHsl(rgb);
-
-    console.log(hsl);
-    let cmyk = rgbToCmyk(rgb);
-    console.log(cmyk);
-
-    setHslSlidersValues(hsl);
-    setCmykSlidersValues(cmyk);
-
-    rgb = hslToRgb(hsl);
-    console.log("Hsl to rgb: ");
-    console.log(rgb);
-
-    rgb = cmykToRgb(cmyk);
-    console.log("Cmyk to rgb: ");
-    console.log(rgb)
-});
-
-function uploadImageToAfterCanvas() {
-    console.log("uploadImageToAfterCanvas called")
-    console.log("changed")
-    const beforeCtx = beforeCanvas.getContext("2d");
-    const afterCtx = afterCanvas.getContext("2d");
-
-    const imageDataBefore =
-        beforeCtx.getImageData(0, 0, beforeCanvas.width, beforeCanvas.height);
-
-    afterCanvas.width = imageDataBefore.width;
-    afterCanvas.height = imageDataBefore.height;
-    afterCtx.imageSmoothingEnabled = true;
-
-    afterCtx.putImageData(imageDataBefore, 0, 0);
-}
-
 function uploadImageToBeforeCanvas(event) {
     console.log("uploadImageToBeforeCanvas called");
-    const fileInput= event.target;
+    const fileInput = event.target;
     const file = fileInput.files[0];
 
     if (file) {
@@ -99,6 +68,60 @@ function uploadImageToBeforeCanvas(event) {
         reader.readAsDataURL(file);
     }
 }
+function uploadImageToAfterCanvas() {
+    console.log("uploadImageToAfterCanvas called")
+    console.log("changed")
+    const beforeCtx = beforeCanvas.getContext("2d");
+    const afterCtx = afterCanvas.getContext("2d");
+
+    const imageData =
+        beforeCtx.getImageData(0, 0, beforeCanvas.width, beforeCanvas.height);
+
+    for (let i = 0; i < imageData.data.length; i += 4) {
+        let rgb = {
+            red: imageData.data[i],
+            green: imageData.data[i + 1],
+            blue: imageData.data[i + 2]
+        }
+
+        let hsl = rgbToHsl(rgb);
+        rgb = hslToRgb(hsl);
+        let cmyk = rgbToCmyk(rgb);
+        rgb = cmykToRgb(cmyk);
+
+        imageData.data[i] = rgb.red; // red
+        imageData.data[i + 1] = rgb.green // green
+        imageData.data[i + 2] = rgb.blue // blue
+    }
+
+    afterCanvas.width = imageData.width;
+    afterCanvas.height = imageData.height;
+    afterCtx.imageSmoothingEnabled = true;
+
+    afterCtx.putImageData(imageData, 0, 0);
+}
+
+
+beforeCanvas.addEventListener("mousemove", (event) => {
+    let rgb = getRGBAForPixelOnBeforeCanvas(event);
+    console.log(rgb);
+    let hsl = rgbToHsl(rgb);
+    console.log(hsl);
+
+    let cmyk = rgbToCmyk(rgb);
+    console.log(cmyk);
+
+    setHslSlidersValues(hsl);
+    setCmykSlidersValues(cmyk);
+
+    rgb = hslToRgb(hsl);
+    console.log("Hsl to rgb: ");
+    console.log(rgb);
+
+    rgb = cmykToRgb(cmyk);
+    console.log("Cmyk to rgb: ");
+    console.log(rgb)
+});
 
 function getRGBAForPixelOnBeforeCanvas(event) {
     const bounding = beforeCanvas.getBoundingClientRect();
@@ -215,6 +238,15 @@ function hslToRgb(hsl) {
     let saturation = hsl.saturation;
     let lightness = hsl.lightness;
 
+    let saturationHueSliderValue = saturationHueSlider.value;
+    //console.log(saturationHeuSliderValue);
+
+    if(hue > saturationHueSliderValue - 5 && hue < saturationHueSliderValue + 5) {
+        //console.log("saturation changed from: " + saturation);
+        saturation = saturationSaturationSlider.value;
+        //console.log(" to: " + saturation);
+    }
+
     // Ensure hue is in the range [0, 360]
     hue = (hue % 360 + 360) % 360;
 
@@ -293,3 +325,35 @@ function cmykToRgb(cmyk) {
     return {red: r, green: g, blue: b};
 }
 
+saturationHueSlider.addEventListener("mouseup", () => {
+    uploadImageToAfterCanvas();
+})
+
+saturationHueSlider.addEventListener("input", () => {
+    saturationHueSliderLabel.textContent = saturationHueSlider.value;
+})
+
+saturationSaturationSlider.addEventListener("mouseup", () => {
+    uploadImageToAfterCanvas();
+})
+
+saturationSaturationSlider.addEventListener("input", () => {
+    saturationSaturationSliderLabel.textContent = saturationSaturationSlider.value;
+})
+
+saveButtonAfter.addEventListener("click", () => {
+    let canvas = document.getElementById("after-canvas");
+    saveCanvasImage(canvas);
+});
+
+function saveCanvasImage(canvas) {
+    if (!canvas) return;
+
+    const dataURL = canvas.toDataURL(); // Convert canvas content to data URL
+
+    // Create a download link
+    const downloadLink = document.createElement("a");
+    downloadLink.href = dataURL;
+    downloadLink.download = "canvas_image.png"; // Specify the download file name
+    downloadLink.click(); // Simulate a click on the download link
+}
