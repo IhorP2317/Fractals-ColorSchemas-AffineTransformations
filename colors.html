@@ -49,6 +49,7 @@
                 step="1"
                 id="hsl-hue-slider"
                 class="horizontal-slider colored"
+                disabled
               />
               <label class="slider-value-label" id="hsl-hue-slider-value"
                 >0</label
@@ -65,6 +66,7 @@
                 step="1"
                 class="horizontal-slider"
                 id="hsl-saturation-slider"
+                disabled
               />
               <label class="slider-value-label" id="hsl-saturation-slider-value"
                 >0</label
@@ -81,6 +83,7 @@
                 step="1"
                 id="hsl-lightness-slider"
                 class="horizontal-slider"
+                disabled
               />
               <label class="slider-value-label" id="hsl-lightness-slider-value"
                 >0</label
@@ -98,6 +101,7 @@
                 value="0"
                 class="horizontal-slider cyan"
                 id="cmyk-cyan-slider"
+                disabled
               />
               <label class="slider-value-label" id="cmyk-cyan-slider-value"
                 >0</label
@@ -114,6 +118,7 @@
                 step="1"
                 class="horizontal-slider magenta"
                 id="cmyk-magenta-slider"
+                disabled
               />
               <label class="slider-value-label" id="cmyk-magenta-slider-value"
                 >0</label
@@ -130,6 +135,7 @@
                 step="1"
                 id="cmyk-yellow-slider"
                 class="horizontal-slider yellow"
+                disabled
               />
               <label class="slider-value-label" id="cmyk-yellow-slider-value"
                 >0</label
@@ -143,8 +149,9 @@
                 max="100"
                 value="0"
                 step="1"
-                id="hsl-black-slider"
+                id="cmyk-black-slider"
                 class="horizontal-slider black"
+                disabled
               />
               <label class="slider-value-label" id="cmyk-black-slider-value"
                 >0</label
@@ -164,9 +171,7 @@
                 id="saturation-hue-slider"
                 class="horizontal-slider colored"
               />
-              <label class="slider-value-label" id="saturation-hue-slider-value"
-                >0</label
-              >
+              <label class="slider-value-label" id="saturation-hue-slider-value">0</label>
             </div>
 
             <div class="parametr-row">
@@ -178,11 +183,9 @@
                 value="0"
                 step="1"
                 class="horizontal-slider"
-                id="hsl-saturation-slider"
+                id="saturation-saturation-slider"
               />
-              <label class="slider-value-label" id="hsl-saturation-slider-value"
-                >0</label
-              >
+              <label class="slider-value-label" id="saturation-saturation-slider-value">0</label>
             </div>
           </div>
         </div>
@@ -204,8 +207,7 @@
           <div class="colors-output-after">
             <div
               class="colors-output-after-container"
-              id="colors-output-after-container"
-            >
+              id="colors-output-after-container">
               <canvas id="after-canvas"></canvas>
             </div>
             <p>After</p>
@@ -218,5 +220,5 @@
     </main>
   </body>
   <script src="./scripts/activityLink.js"></script>
-  <script src="./scripts/hslImageSelecting.js"></script>
+  <script src="./scripts/colors.js"></script>
 </html>
