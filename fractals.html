@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
-    <title>Fractals</title>
-  </head>
-  <body>
-    <header class="header-body">
-      <nav class="header-content">
-        <ul>
-          <li><a href="./index.html">Home</a></li>
-          <li id="activity-link" class="activity-link current-page">
-            <a href="#">Activity</a>
-            <div class="activities-dropdown-body" id="activities-dropdown-body">
-              <ul class="activities-dropdown-content">
-                <li><a href="./fractals.html">Creating fractals</a></li>
-                <li><a href="./colors.html">Work with color systems</a></li>
-                <li><a href="#">Affine transformation of shapes</a></li>
-              </ul>
-            </div>
-          </li>
-          <li><a href="#">Definitions</a></li>
-          <li><a href="#">About us</a></li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <div class="main-content">
-        <div class="fractals-interaction">
-          <h1>Fractals</h1>
-          <p>Create your fractals super fast</p>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="./styles/style.css"/>
+        <title>Fractals</title>
+    </head>
+    <body>
+        <header class="header-body">
+            <nav class="header-content">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li id="activity-link" class="activity-link current-page">
+                        <a href="#">Activity</a>
+                        <div class="activities-dropdown-body" id="activities-dropdown-body">
+                            <ul class="activities-dropdown-content">
+                                <li><a href="./fractals.html">Creating fractals</a></li>
+                                <li><a href="./colors.html">Work with color systems</a></li>
+                                <li><a href="#">Affine transformation of shapes</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="#">Definitions</a></li>
+                    <li><a href="#">About us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="main-content">
+                <div class="fractals-interaction">
+                    <h1>Fractals</h1>
+                    <p>Create your fractals superfast</p>
 
-          <select class="choose-fractal-type" id="choose-fractal-type">
-            <option value="" disabled selected hidden>
-              Choose fractal type
-            </option>
-            <option value="Ch z">Ch z</option>
-            <option value="sinz + cosz">sin z * cos z</option>
-            <option value="Cut">Cut</option>
-          </select>
-          <div class="fractals-parameters-container">
-            <div class="parametr-row">
-                <Label>Iterations</Label>
-                <input type=range min="0" max="100" value="0" step="1" id="iteration-slider" class="horizontal-slider">
-                <label class="slider-value-label" id="iteration-slider-value">0</label>
-            </div>
+                    <select class="choose-fractal-type" id="choose-fractal-type">
+                        <option value="" disabled selected hidden>
+                            Choose fractal type
+                        </option>
+                        <option value="Ch z">Ch z</option>
+                        <option value="sinz + cosz">sin z * cos z</option>
+                        <option value="Cut">Cut</option>
+                    </select>
+                    <div class="fractals-parameters-container">
+                        <div class="parametr-row">
+                            <Label>Iterations</Label>
+                            <input type=range min="0" max="100" value="0" step="1" id="iteration-slider"
+                                   class="horizontal-slider">
+                            <label class="slider-value-label" id="iteration-slider-value">0</label>
+                        </div>
 
-            <div class="parametr-row">
-              <Label>Hue</Label>
-              <input type=range min="0" max="360" value="0" step="1" id="hue-slider" class="horizontal-slider colored">
-              <label class="slider-value-label" id="hue-slider-value">0</label>
-            </div>
+                        <div class="parametr-row">
+                            <Label>Hue</Label>
+                            <input type=range min="0" max="360" value="0" step="1" id="hue-slider"
+                                   class="horizontal-slider colored">
+                            <label class="slider-value-label" id="hue-slider-value">0</label>
+                        </div>
 
-            <div class="parametr-row">
-              <Label>Zoom</Label>
-              <input type =range min="1" max="10" value="1" step="1" id="zoom-slider" class="horizontal-slider">
-              <label class="slider-value-label" id="zoom-slider-value">1</label>
-            </div>
+                        <div class="parametr-row">
+                            <Label>Zoom</Label>
+                            <input type=range min="1" max="10" value="1" step="1" id="zoom-slider"
+                                   class="horizontal-slider">
+                            <label class="slider-value-label" id="zoom-slider-value">1</label>
+                        </div>
 
-            <button id="clear-button" class="secondary-button">Clear</button>
-          </div>
+                        <button id="clear-button" class="secondary-button">Clear</button>
+                    </div>
 
-          <button id="save-button" class="primary-button"><span class="fa-solid fa-download"></span> Save image</button>
-        </div>
-        <div class="fractals-result">
-          <p class="fractals-result-title">Result</p>
-            <div class="fractals-result-container" id="fractals-result-container">
-              <canvas id="fractalCanvas" width="800" height="600"></canvas> 
+                    <button id="save-button" class="primary-button"><span class="fa-solid fa-download"></span> Save
+                        image
+                    </button>
+                </div>
+                <div class="fractals-result">
+                    <p class="fractals-result-title">Result</p>
+                    <div class="fractals-result-container" id="fractals-result-container">
+                        <canvas id="fractalCanvas" width="800" height="600"></canvas>
+                    </div>
+                </div>
             </div>
-        </div>
-      </div>
-    </main>
-  </body>
-  <script src="./scripts/activityLink.js"></script>
-  <script src="./scripts/fractalsDrawing.js"></script>
-  <script src="./scripts/fractalsParameters.js"></script>
-  <script src="./scripts/fractalsDownload.js"></script>
+        </main>
+    </body>
+    <script src="scripts/main/script.js"></script>
+    <script src="scripts/fractals/fractalsDrawing.js"></script>
+    <script src="scripts/fractals/fractalsParameters.js"></script>
+    <script src="scripts/fractals/fractalsDownload.js"></script>
 </html>
