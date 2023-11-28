@@ -13,15 +13,18 @@
 
 # Color schemas
 
-![image](https://github.com/rrromchIk/Fractals-ColorSchemas/assets/90086332/55d5f756-c2e7-4ab5-b082-8182946c4d30)
+![image](https://github.com/rrromchIk/Fractals-ColorSchemas/assets/90086332/3f84c4b0-c4ca-4a47-92fa-401a204598d0)
 
 ---
 
-![image](https://github.com/rrromchIk/Fractals-ColorSchemas/assets/90086332/00839094-c172-4fa7-807f-830a0d6c7980)
+![image](https://github.com/rrromchIk/Fractals-ColorSchemas/assets/90086332/81cc8912-345e-4b6f-abeb-73c4e176456f)
 
 ---
 
-![image](https://github.com/rrromchIk/Fractals-ColorSchemas/assets/90086332/8f04712a-f3b7-4ff5-b451-b37232bdbce9)
+![image](https://github.com/rrromchIk/Fractals-ColorSchemas/assets/90086332/7063f20e-e077-4467-9106-76684a4bbca4)
 
+---
+
+![image](https://github.com/rrromchIk/Fractals-ColorSchemas/assets/90086332/314075c0-4aa1-4414-970a-31416af4573d)
 
 
