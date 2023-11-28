@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <link rel="stylesheet" type="text/css" href="./styles/style.css" />
     <title>Colors</title>
   </head>
@@ -38,182 +37,150 @@
       <div class="colors-interaction">
         <div class="colors-parameters-content">
           <div class="HSL-parameters-container">
-            <label class="color-type-label">HSL</label>
+            <div class="parameters-container-header">
+              <label class="color-type-label">HSL</label>
+              <img id="hsl-hint" class="question-image" src="images/Question.png" alt="question">
+            </div>
             <div class="parametr-row">
               <label>Hue</label>
-              <input
-                type="range"
-                min="0"
-                max="360"
-                value="0"
-                step="1"
-                id="hsl-hue-slider"
-                class="horizontal-slider colored"
-                disabled
-              />
-              <label class="slider-value-label" id="hsl-hue-slider-value"
-                >0</label
-              >
+              <input type="range" min="0" max="360" value="0" step="1" id="hsl-hue-slider" class="horizontal-slider colored" disabled/>
+              <label class="slider-value-label" id="hsl-hue-slider-value">0</label>
             </div>
 
             <div class="parametr-row">
               <label>Saturation</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="1"
-                class="horizontal-slider"
-                id="hsl-saturation-slider"
-                disabled
-              />
-              <label class="slider-value-label" id="hsl-saturation-slider-value"
-                >0</label
-              >
+              <input type="range" min="0" max="100" value="0" step="1" class="horizontal-slider" id="hsl-saturation-slider" disabled/>
+              <label class="slider-value-label" id="hsl-saturation-slider-value">0</label>
             </div>
 
             <div class="parametr-row">
               <label>Lightness</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="1"
-                id="hsl-lightness-slider"
-                class="horizontal-slider"
-                disabled
-              />
-              <label class="slider-value-label" id="hsl-lightness-slider-value"
-                >0</label
-              >
+              <input type="range" min="0" max="100" value="0" step="1" id="hsl-lightness-slider" class="horizontal-slider" disabled/>
+              <label class="slider-value-label" id="hsl-lightness-slider-value">0</label>
             </div>
           </div>
           <div class="CMYK-parameters-container">
-            <label class="color-type-label">CMYK</label>
+            <div class="parameters-container-header">
+              <label class="color-type-label">CMYK</label>
+              <img id="cmyk-hint" class="question-image" src="images/Question.png" alt="question">
+            </div>
+
             <div class="parametr-row">
               <label>Cyan</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                class="horizontal-slider cyan"
-                id="cmyk-cyan-slider"
-                disabled
-              />
-              <label class="slider-value-label" id="cmyk-cyan-slider-value"
-                >0</label
-              >
+              <input type="range" min="0" max="100" value="0" class="horizontal-slider cyan" id="cmyk-cyan-slider" disabled/>
+              <label class="slider-value-label" id="cmyk-cyan-slider-value">0</label>
             </div>
 
             <div class="parametr-row">
               <label>Magenta</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="1"
-                class="horizontal-slider magenta"
-                id="cmyk-magenta-slider"
-                disabled
-              />
-              <label class="slider-value-label" id="cmyk-magenta-slider-value"
-                >0</label
-              >
+              <input type="range" min="0" max="100" value="0" step="1" class="horizontal-slider magenta" id="cmyk-magenta-slider" disabled/>
+              <label class="slider-value-label" id="cmyk-magenta-slider-value">0</label>
             </div>
 
             <div class="parametr-row">
               <label>Yellow</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="1"
-                id="cmyk-yellow-slider"
-                class="horizontal-slider yellow"
-                disabled
-              />
-              <label class="slider-value-label" id="cmyk-yellow-slider-value"
-                >0</label
-              >
+              <input type="range" min="0" max="100" value="0" step="1" id="cmyk-yellow-slider" class="horizontal-slider yellow" disabled/>
+              <label class="slider-value-label" id="cmyk-yellow-slider-value">0</label>
             </div>
             <div class="parametr-row">
               <label>Black</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="1"
-                id="cmyk-black-slider"
-                class="horizontal-slider black"
-                disabled
-              />
-              <label class="slider-value-label" id="cmyk-black-slider-value"
-                >0</label
-              >
+              <input type="range" min="0" max="100" value="0" step="1" id="cmyk-black-slider" class="horizontal-slider black" disabled/>
+              <label class="slider-value-label" id="cmyk-black-slider-value">0</label>
             </div>
           </div>
           <div class="Saturation-parameters-container">
-            <label class="color-type-label">Saturation</label>
+            <div class="parameters-container-header">
+              <label class="color-type-label">Saturation</label>
+              <img id="saturation-hint" class="question-image" src="images/Question.png" alt="question">
+            </div>
             <div class="parametr-row">
               <label>Hue</label>
-              <input
-                type="range"
-                min="0"
-                max="360"
-                value="0"
-                step="1"
-                id="saturation-hue-slider"
-                class="horizontal-slider colored"
-              />
+              <input type="range" min="0" max="360" value="0" step="1" id="saturation-hue-slider" class="horizontal-slider colored"/>
               <label class="slider-value-label" id="saturation-hue-slider-value">0</label>
             </div>
 
             <div class="parametr-row">
               <label>Saturation</label>
-              <input
-                type="range"
-                min="0"
-                max="100"
-                value="0"
-                step="1"
-                class="horizontal-slider"
-                id="saturation-saturation-slider"
-              />
+              <input type="range" min="0" max="100" value="0" step="1" class="horizontal-slider" id="saturation-saturation-slider"/>
               <label class="slider-value-label" id="saturation-saturation-slider-value">0</label>
             </div>
           </div>
         </div>
         <div class="colors-output">
           <div class="colors-output-before">
-            <div
-              class="colors-output-before-container"
-              id="colors-output-before-container"
-            >
-              <canvas id="before-canvas"></canvas>
+            <div class="colors-output-before-container" id="colors-output-before-container">
+              <canvas id="before-canvas"/>
             </div>
             <p>Before</p>
             <input type="file" id="upload-input" style="display: none" />
             <button id="upload-button" class="secondary-button">
-              <span class="fa-solid fa-download fa-flip-vertical"></span> Upload
-              image
+              <span class="fa-solid fa-download fa-flip-vertical"></span> Upload image
             </button>
           </div>
           <div class="colors-output-after">
-            <div
-              class="colors-output-after-container"
-              id="colors-output-after-container">
-              <canvas id="after-canvas"></canvas>
+            <div class="colors-output-after-container" id="colors-output-after-container">
+              <canvas id="after-canvas"/>
             </div>
             <p>After</p>
             <button id="save-button-after" class="primary-button">
               <span class="fa-solid fa-download"></span> Save image
             </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="hsl-hint-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="modal-header-text">HSL</span>
+            <span class="close-modal" onclick="closeModal()">
+              <img class="close-image" src="images/Dell.png" alt="close">
+            </span>
+          </div>
+          <div class="modal-body">
+            HSL stands for Hue, Saturation, and Lightness, and it's a color model used in design and image editing.
+            Here's what each component does:
+            <br>
+            <ol type="I">
+              <li>Hue (H): This determines the color itself, ranging from 0 to 360 degrees around a color wheel
+                (e.g., 0 is red, 120 is green, 240 is blue).
+                Changing hue alters the type of color.</li>
+              <li>Saturation (S): This controls the intensity of the color, from 0% (grayscale) to 100% (fully vibrant).
+                Adjusting saturation makes colors more or less vivid.</li>
+              <li>Lightness (L): Lightness affects how bright or dark the color appears, ranging from 0% (black) to 100% (white).
+                It doesn't change the color but alters its brightness.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div id="cmyk-hint-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="modal-header-text">CMYK</span>
+            <span class="close-modal" onclick="closeModal()">
+              <img class="close-image" src="images/Dell.png" alt="close">
+            </span>
+          </div>
+          <div class="modal-body">
+            CMYK is a color model used in printing. It consists of four ink colors: Cyan, Magenta, Yellow, and Key (Black).
+            By combining these colors in varying amounts, it produces a wide range of printed colors. CMYK is commonly used
+            in the printing industry for producing magazines, posters, and other printed materials.
+          </div>
+        </div>
+      </div>
+
+      <div id="saturation-hint-modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="modal-header-text">Saturation</span>
+            <span class="close-modal" onclick="closeModal()">
+              <img class="close-image" src="images/Dell.png" alt="close">
+            </span>
+          </div>
+          <div class="modal-body">
+
           </div>
         </div>
       </div>
@@ -225,4 +192,5 @@
   <script src="scripts/colors/colorsConverting.js"></script>
   <script src="scripts/colors/colorsDownload.js"></script>
   <script src="scripts/colors/colorsParameters.js"></script>
+  <script src="scripts/colors/modalHints.js"></script>
 </html>
