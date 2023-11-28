@@ -12,6 +12,7 @@ document.getElementById("upload-button").addEventListener("click", function () {
 //upload chosen image to beforeCanvas
 document.getElementById("upload-input").addEventListener("change", (event) => {
     console.log("File input changed");
+    isSelected = false;
     uploadImageToBeforeCanvas(event);
 });
 
