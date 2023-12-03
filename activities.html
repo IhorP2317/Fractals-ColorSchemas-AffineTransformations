@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <title>About us</title>
+  </head>
+  <body>
+    <header class="header-body">
+      <nav class="header-content">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li id="activity-link" class="activity-link current-page">
+            <a href="#">Activity</a>
+            <div class="activities-dropdown-body" id="activities-dropdown-body">
+              <ul class="activities-dropdown-content">
+                <li><a href="./fractals.html">Creating fractals</a></li>
+                <li><a href="./colors.html">Work with color systems</a></li>
+                <li>
+                  <a href="./figures.html">Affine transformation of shapes</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="./definitions.html">Definitions</a></li>
+          <li><a href="./aboutUs.html">About us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="activities-content">
+        <h1>Choose activity</h1>
+        <div class="activities-row">
+          <a href="fractals.html" target="_self">
+            <div class="activities-row-item">
+              <img src="./images/Fractals-activities.png" alt="Fractal" />
+              <div class="activities-row-item-description">
+                <p>Creating Fractals</p>
+                <button class="primary-button">start</button>
+              </div>
+            </div>
+          </a>
+          <a href="colors.html" target="_self">
+            <div class="activities-row-item">
+              <img src="./images/Colors-activities.png" alt="Colors" />
+              <div class="activities-row-item-description">
+                <p>Work with color systems</p>
+                <button class="primary-button">start</button>
+              </div>
+            </div>
+          </a>
+          <a href="figures.html" target="_self">
+            <div class="activities-row-item">
+              <img src="./images/Figures-activities.png" alt="Figures" />
+              <div class="activities-row-item-description">
+                <p>Affine transformation of shapes</p>
+                <button class="primary-button">start</button>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="scripts/main/script.js"></script>
+</html>
