@@ -37,51 +37,50 @@
                         <div class="parametr-row coordinate">
                             <p>Enter the coordinates of A</p>
                             <Label class="coordinate-label">X:</Label>
-                            <input type="text" class="coordinate-input">
+                            <input id="input-x-A" type="text" class="coordinate-input" oninput="validateInput(this)">
                             <Label class="coordinate-label">Y:</Label>
-                            <input type="text" class="coordinate-input">
+                            <input id="input-y-A" type="text" class="coordinate-input" oninput="validateInput(this)">
                         </div>
                         <div class="parametr-row coordinate">
                             <p>Enter the coordinates of B</p>
                             <Label class="coordinate-label">X:</Label>
-                            <input type="text" class="coordinate-input">
+                            <input id="input-x-B" type="text" class="coordinate-input" oninput="validateInput(this)">
                             <Label class="coordinate-label">Y:</Label>
-                            <input type="text" class="coordinate-input">
+                            <input id="input-y-B" type="text" class="coordinate-input" oninput="validateInput(this)">
                         </div>
                         <div class="parametr-row coordinate">
                             <p>Enter the coordinates of C</p>
                             <Label class="coordinate-label">X:</Label>
-                            <input type="text" class="coordinate-input">
+                            <input id="input-x-C" type="text" class="coordinate-input" oninput="validateInput(this)">
                             <Label class="coordinate-label">Y:</Label>
-                            <input type="text" class="coordinate-input">
+                            <input id="input-y-C" type="text" class="coordinate-input" oninput="validateInput(this)">
                         </div>
-                        <div class="parametr-row">
-                        <select class="choose-turn-type" id="choose-turn-type">
-                            <option value="" disabled selected hidden>
-                                Choose turn type
-                            </option>
-                            <option value="Clockwise">Clockwise</option>
-                            <option value="Counterclockwise">Counterclockwise</option>
-                        </select>
+                        <div class="parametr-row turn-type">
+                            <select class="choose-turn-type" id="choose-turn-type">
+                                <option value="Choose turn type" disabled selected hidden>
+                                    Choose turn type
+                                </option>
+                                <option value="Clockwise">Clockwise</option>
+                                <option value="Counterclockwise">Counterclockwise</option>
+                            </select>
                         </div>
                         <div class="parametr-row">
                             <Label class="parameter-label">Scale</Label>
-                            <input type=range min="-10" max="10" value="1" step="0.1" id="scale-slider"
-                                   class="horizontal-slider">
-                            <label class="slider-value-label" id="scale-slider-value">1</label>
+                            <button id="scale-button-plus">+</button>
+                            <button id="scale-button-minus">-</button>
                         </div>
                         <div class="parametr-row">
-                            <Label class="parameter-label">Angle</Label>
-                            <input type=range min="0" max="360" value="0" step="1" id="angle-slider"
+                            <Label  class="parameter-label">Angle</Label>
+                            <input id="angle-slider" type=range min="0" max="360" value="0" step="1"
                                    class="horizontal-slider">
-                            <label class="slider-value-label" id="angle-slider-value">0</label>
+                            <label id="angle-slider-label" class="slider-value-label">0</label>
                         </div>
 
                         <div class="parametr-row">
                             <Label class="parameter-label">Zoom</Label>
-                            <input type=range min="-10" max="10" value="1" step="0.1" id="zoom-slider"
+                            <input id="zoom-slider" type=range min="-10" max="10" value="1" step="0.1"
                                    class="horizontal-slider">
-                            <label class="slider-value-label" id="zoom-slider-value">1</label>
+                            <label id="zoom-slider-label" class="slider-value-label">1</label>
                         </div>
 
                         <button id="clear-button" class="secondary-button">Clear</button>
@@ -93,13 +92,15 @@
                 </div>
                 <div class="fractals-result">
                     <p class="fractals-result-title">Result</p>
-                    <div class="fractals-result-container" id="fractals-result-container">
-                        <canvas id="fractalCanvas" width="800" height="600"></canvas>
+                    <div class="fractals-result-container" id="figures-result-container">
+                        <canvas id="figures-canvas" width="800" height="600"></canvas>
                     </div>
                 </div>
             </div>
         </main>
     </body>
     <script src="scripts/main/script.js"></script>
-    <script src="scripts/fractals/fractalsDownload.js"></script>
+    <script src="scripts/figures/coordinateSystem.js"></script>
+    <script src="scripts/figures/figuresDownload.js"></script>
+    <script src="scripts/figures/figures.js"></script>
 </html>

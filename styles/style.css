@@ -283,7 +283,7 @@ li {
   text-align: left;
 }
 .color-title {
-  padding: 0 0 0 2%;
+  padding: 2% 0 0 3%;
 }
 .color-type-label {
   color: #ba4ce6;
@@ -404,8 +404,7 @@ li {
   align-items: center;
 }
 .definitions-content h1 {
-  font-size: 48px;
-  padding: 2% 0;
+  font-size: 40px;
 }
 .definition-article h2 {
   font-size: 32px;
@@ -683,6 +682,8 @@ li {
   outline: none; /* Remove the default outline style */
   margin: 0; /* Adjust the margin for spacing from the left */
   padding: 0;
+  text-align: center;
+  font-size: 16px;
 }
 
 .parametr-row p,
@@ -705,10 +706,14 @@ li {
 .choose-turn-type {
   width: 359px;
   height: 40px;
-  margin-left: 10%;
   color: white !important;
   background-color: #ba4ce6 !important;
   border-radius: 12px;
   font-size: 20px;
   outline: none;
+  text-align: center;
+}
+
+.turn-type {
+  justify-content: center;
 }
