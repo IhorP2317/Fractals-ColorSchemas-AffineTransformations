@@ -55,16 +55,7 @@ function uploadImageToBeforeCanvas(event) {
 
 function uploadImageToAfterCanvas() {
     console.log("uploadImageToAfterCanvas called");
-    const beforeCtx = beforeCanvas.getContext("2d");
-
     const afterCtx = afterCanvas.getContext("2d");
-
-    // const imageData = beforeCtx.getImageData(
-    //     0,
-    //     0,
-    //     beforeCanvas.width,
-    //     beforeCanvas.height
-    // );
 
     const imageData = new ImageData(
         new Uint8ClampedArray(beforeCanvasImageData.data),

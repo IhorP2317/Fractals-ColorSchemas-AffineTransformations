@@ -675,8 +675,8 @@ li {
   justify-content: space-between;
 }
 .coordinate-input {
-  width: 10%;
-  height: 110%;
+  width: 20%;
+  height: 25px;
   border: 1px solid; /* Add 'solid' to specify the border style */
   border-radius: 12px;
   outline: none; /* Remove the default outline style */
@@ -696,11 +696,17 @@ li {
 .parametr-row p {
   font-size: 20px;
 }
+
 .coordinate-label {
   font-size: 20px;
 }
-.coordinate {
-  margin: 0 10% 2% 0;
+
+.point-label-container {
+  width: 15%;
+}
+
+.coordinates {
+  margin-left: 5%;
 }
 
 .choose-turn-type {
@@ -717,3 +723,18 @@ li {
 .turn-type {
   justify-content: center;
 }
+
+.readonly {
+  background-color: lightgrey;
+}
+
+.figures-parameters-container .secondary-button{
+  width: 145px;
+  height: 30px;
+  margin-right: 10%;
+}
+
+.button-group {
+  justify-content: flex-start;
+}
+
