@@ -1,135 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-        <link rel="stylesheet" type="text/css" href="./styles/style.css"/>
-        <title>Fractals</title>
-    </head>
-    <body>
-        <header class="header-body">
-            <nav class="header-content">
-                <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li id="activity-link" class="activity-link current-page">
-                        <a href="#">Activity</a>
-                        <div class="activities-dropdown-body" id="activities-dropdown-body">
-                            <ul class="activities-dropdown-content">
-                                <li><a href="./fractals.html">Creating fractals</a></li>
-                                <li><a href="./colors.html">Work with color systems</a></li>
-                                <li><a href="#">Affine transformation of shapes</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a href="./definitions.html">Definitions</a></li>
-                    <li><a href="./aboutUs.html">About us</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div class="main-content">
-                <div class="figures-interaction">
-                    <h1>Figures</h1>
-                    <p>Create, zoom and rotate your parallelogram superfast</p>
-                    <div class="figures-parameters-container">
-                        <h3>Parallelogram</h3>
-                        <div class="parametr-row">
-                            <div class="point-label-container">
-                                <p>A:</p>
-                            </div>
-                            <div>
-                                <Label class="coordinate-label">X:</Label>
-                                <input id="input-x-A" type="text" class="coordinate-input" oninput="validateInput(this)">
-                                <Label class="coordinate-label">Y:</Label>
-                                <input id="input-y-A" type="text" class="coordinate-input" oninput="validateInput(this)">
-                            </div>
-
-                            <div class="point-label-container">
-                                <p>B:</p>
-                            </div>
-                            <div>
-                                <Label class="coordinate-label">X:</Label>
-                                <input id="input-x-B" type="text" class="coordinate-input" oninput="validateInput(this)">
-                                <Label class="coordinate-label">Y:</Label>
-                                <input id="input-y-B" type="text" class="coordinate-input" oninput="validateInput(this)">
-                            </div>
-                        </div>
-                        <div class="parametr-row">
-                            <div class="point-label-container">
-                                <p>C:</p>
-                            </div>
-                            <div>
-                                <Label class="coordinate-label">X:</Label>
-                                <input id="input-x-C" type="text" class="coordinate-input" oninput="validateInput(this)">
-                                <Label class="coordinate-label">Y:</Label>
-                                <input id="input-y-C" type="text" class="coordinate-input" oninput="validateInput(this)">
-                            </div>
-
-                            <div class="point-label-container">
-                                <p>D:</p>
-                            </div>
-                            <div>
-                                <Label class="coordinate-label">X:</Label>
-                                <input id="result-x-D" type="text" class="coordinate-input readonly" readonly>
-                                <Label class="coordinate-label">Y:</Label>
-                                <input id="result-y-D" type="text" class="coordinate-input readonly" readonly>
-                            </div>
-                        </div>
-
-                        <div class="parametr-row button-group">
-                            <button id="clear-button" class="secondary-button">Clear</button>
-                            <button id="draw-rectangle-button" class="primary-button">Draw rectangle</button>
-                        </div>
-<!--                        <div class="parametr-row turn-type">-->
-<!--                            <select class="choose-turn-type" id="choose-turn-type">-->
-<!--                                <option value="Choose turn type" disabled selected hidden>-->
-<!--                                    Choose turn type-->
-<!--                                </option>-->
-<!--                                <option value="Clockwise">Clockwise</option>-->
-<!--                                <option value="Counterclockwise">Counterclockwise</option>-->
-<!--                            </select>-->
-<!--                        </div>-->
-                        <div class="parametr-row">
-                            <Label class="parameter-label">Scale</Label>
-                            <input type=range min="2" max="100" value="1" step="1" id="scale-slider"
-                                   class="horizontal-slider">
-                            <label class="slider-value-label" id="scale-slider-value">1</label>
-                        </div>
-                        <div class="parametr-row">
-                            <Label  class="parameter-label">Angle</Label>
-                            <input id="angle-slider" type=range min="0" max="360" value="0" step="1"
-                                   class="horizontal-slider">
-                            <label id="angle-slider-label" class="slider-value-label">0</label>
-                        </div>
-
-                        <div class="parametr-row">
-                            <Label class="parameter-label">Zoom</Label>
-                            <input id="zoom-slider" type=range min="-10" max="10" value="1" step="0.1"
-                                   class="horizontal-slider">
-                            <label id="zoom-slider-label" class="slider-value-label">1</label>
-                        </div>
-                    </div>
-
-                    <button id="save-button" class="primary-button"><span class="fa-solid fa-download"></span> Save
-                        image
-                    </button>
-                </div>
-                <div class="fractals-result">
-                    <p class="fractals-result-title">Result</p>
-                    <div class="fractals-result-container" id="figures-result-container">
-                        <canvas id="figures-canvas" width="600" height="600"></canvas>
-                    </div>
-                </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    <title>Fractals</title>
+  </head>
+  <body>
+    <header class="header-body">
+      <nav class="header-content">
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li id="activity-link" class="activity-link current-page">
+            <a href="#">Activity</a>
+            <div class="activities-dropdown-body" id="activities-dropdown-body">
+              <ul class="activities-dropdown-content">
+                <li><a href="./fractals.html">Creating fractals</a></li>
+                <li><a href="./colors.html">Work with color systems</a></li>
+                <li><a href="#">Affine transformation of shapes</a></li>
+              </ul>
             </div>
-        </main>
-    </body>
-    <script src="scripts/main/script.js"></script>
-    <script src="scripts/figures/Rectangle.js"></script>
-    <script src="scripts/figures/main.js"></script>
-    <script src="scripts/figures/parallelogramUtil.js"></script>
-    <script src="scripts/figures/matrixUtil.js"></script>
-    <script src="scripts/figures/coordinateSystem.js"></script>
-    <script src="scripts/figures/figuresDownload.js"></script>
-    <script src="scripts/figures/figuresParameters.js"></script>
+          </li>
+          <li><a href="./definitions.html">Definitions</a></li>
+          <li><a href="./aboutUs.html">About us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="main-content">
+        <div class="figures-interaction">
+          <h1>Figures</h1>
+          <p>Create, zoom and rotate your parallelogram superfast</p>
+          <div class="figures-parameters-container">
+            <h3>Parallelogram</h3>
+            <div class="parametr-row">
+              <div class="point-label-container">
+                <p>A:</p>
+              </div>
+              <div>
+                <label class="coordinate-label">X:</label>
+                <input
+                  id="input-x-A"
+                  type="text"
+                  class="coordinate-input"
+                  oninput="validateInput(this)"
+                />
+                <label class="coordinate-label">Y:</label>
+                <input
+                  id="input-y-A"
+                  type="text"
+                  class="coordinate-input"
+                  oninput="validateInput(this)"
+                />
+              </div>
+
+              <div class="point-label-container">
+                <p>B:</p>
+              </div>
+              <div>
+                <label class="coordinate-label">X:</label>
+                <input
+                  id="input-x-B"
+                  type="text"
+                  class="coordinate-input"
+                  oninput="validateInput(this)"
+                />
+                <label class="coordinate-label">Y:</label>
+                <input
+                  id="input-y-B"
+                  type="text"
+                  class="coordinate-input"
+                  oninput="validateInput(this)"
+                />
+              </div>
+            </div>
+            <div class="parametr-row">
+              <div class="point-label-container">
+                <p>C:</p>
+              </div>
+              <div>
+                <label class="coordinate-label">X:</label>
+                <input
+                  id="input-x-C"
+                  type="text"
+                  class="coordinate-input"
+                  oninput="validateInput(this)"
+                />
+                <label class="coordinate-label">Y:</label>
+                <input
+                  id="input-y-C"
+                  type="text"
+                  class="coordinate-input"
+                  oninput="validateInput(this)"
+                />
+              </div>
+
+              <div class="point-label-container">
+                <p>D:</p>
+              </div>
+              <div>
+                <label class="coordinate-label">X:</label>
+                <input
+                  id="result-x-D"
+                  type="text"
+                  class="coordinate-input readonly"
+                  readonly
+                />
+                <label class="coordinate-label">Y:</label>
+                <input
+                  id="result-y-D"
+                  type="text"
+                  class="coordinate-input readonly"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="parametr-row button-group">
+              <button id="clear-button" class="secondary-button">Clear</button>
+              <button id="draw-rectangle-button" class="primary-button">
+                Draw parallelogram
+              </button>
+            </div>
+            <!--                        <div class="parametr-row turn-type">-->
+            <!--                            <select class="choose-turn-type" id="choose-turn-type">-->
+            <!--                                <option value="Choose turn type" disabled selected hidden>-->
+            <!--                                    Choose turn type-->
+            <!--                                </option>-->
+            <!--                                <option value="Clockwise">Clockwise</option>-->
+            <!--                                <option value="Counterclockwise">Counterclockwise</option>-->
+            <!--                            </select>-->
+            <!--                        </div>-->
+            <div class="parametr-row">
+              <input
+                type="checkbox"
+                id="rotate-checkbox"
+                class="figures-checkbox"
+              />
+              <label class="parameter-label">Angle</label>
+              <input
+                id="angle-slider"
+                type="range"
+                min="0"
+                max="100"
+                value="0"
+                step="1"
+                class="horizontal-slider"
+              />
+              <label id="angle-slider-label" class="slider-value-label"
+                >0</label
+              >
+            </div>
+
+            <div class="parametr-row">
+              <input
+                type="checkbox"
+                id="zoom-checkbox"
+                class="figures-checkbox"
+              />
+              <label class="parameter-label">Zoom</label>
+              <input
+                id="zoom-slider"
+                type="range"
+                min="0"
+                max="5"
+                value="1"
+                step="0.1"
+                class="horizontal-slider"
+              />
+              <label id="zoom-slider-label" class="slider-value-label">1</label>
+            </div>
+            <div class="parametr-row">
+              <button
+                id="start-animation-button"
+                class="primary-button animation"
+              >
+                Start
+              </button>
+            </div>
+          </div>
+
+          <button id="save-button" class="primary-button">
+            <span class="fa-solid fa-download"></span> Save image
+          </button>
+        </div>
+        <div class="fractals-result">
+          <p class="fractals-result-title">Result</p>
+          <div class="parametr-row">
+            <label class="parameter-label">Scale</label>
+            <input
+              type="range"
+              min="2"
+              max="100"
+              value="1"
+              step="1"
+              id="scale-slider"
+              class="horizontal-slider"
+            />
+            <label class="slider-value-label" id="scale-slider-value">1</label>
+          </div>
+          <div class="fractals-result-container" id="figures-result-container">
+            <canvas id="figures-canvas" width="600" height="600"></canvas>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script src="scripts/main/script.js"></script>
+  <script src="scripts/figures/Rectangle.js"></script>
+  <script src="scripts/figures/main.js"></script>
+  <script src="scripts/figures/parallelogramUtil.js"></script>
+  <script src="scripts/figures/matrixUtil.js"></script>
+  <script src="scripts/figures/coordinateSystem.js"></script>
+  <script src="scripts/figures/figuresDownload.js"></script>
+  <script src="scripts/figures/figuresParameters.js"></script>
 </html>

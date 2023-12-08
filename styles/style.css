@@ -735,6 +735,13 @@ li {
 }
 
 .button-group {
+  justify-content: row;
+}
+.animation {
   justify-content: flex-start;
+  width: 100%;
+}
+.figures-checkbox{
+  width: 10%;
 }
 
