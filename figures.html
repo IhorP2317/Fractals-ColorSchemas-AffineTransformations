@@ -31,12 +31,15 @@
       </nav>
     </header>
     <main>
-      <div class="main-content">
+      <div class="main-content affine-transformation">
         <div class="figures-interaction">
           <h1>Figures</h1>
           <p>Create, zoom and rotate your parallelogram superfast</p>
           <div class="figures-parameters-container">
-            <h3>Parallelogram</h3>
+            <div class="parametr-row button-group">
+              <h3>Parallelogram</h3>
+              <button id="clear-button" class="secondary-button">Clear</button>
+            </div>
             <div class="parametr-row">
               <div class="point-label-container">
                 <p>A:</p>
@@ -120,9 +123,8 @@
               </div>
             </div>
 
-            <div class="parametr-row button-group">
-              <button id="clear-button" class="secondary-button">Clear</button>
-              <button id="draw-rectangle-button" class="primary-button">
+            <div class="parametr-row">
+              <button id="draw-rectangle-button" class="primary-button animation">
                 Draw parallelogram
               </button>
             </div>
@@ -189,7 +191,6 @@
           </button>
         </div>
         <div class="fractals-result">
-          <p class="fractals-result-title">Result</p>
           <div class="parametr-row">
             <label class="parameter-label">Scale</label>
             <input
@@ -201,7 +202,9 @@
               id="scale-slider"
               class="horizontal-slider"
             />
-            <label class="slider-value-label" id="scale-slider-value">1</label>
+            <label class="slider-value-label" id="scale-slider-value" value="5"
+              >5</label
+            >
           </div>
           <div class="fractals-result-container" id="figures-result-container">
             <canvas id="figures-canvas" width="600" height="600"></canvas>

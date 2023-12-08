@@ -737,6 +737,9 @@ li {
 .button-group {
   justify-content: row;
 }
+.button-group .secondary-button{
+  margin: 2%;
+}
 .animation {
   justify-content: flex-start;
   width: 100%;
@@ -744,4 +747,5 @@ li {
 .figures-checkbox{
   width: 10%;
 }
+
 
