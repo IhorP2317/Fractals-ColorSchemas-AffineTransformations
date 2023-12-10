@@ -704,6 +704,9 @@ li {
 .point-label-container {
   width: 15%;
 }
+.point-label-container-move-by-center {
+  width: 50%
+}
 
 .coordinates {
   margin-left: 5%;
@@ -735,6 +738,7 @@ li {
 }
 
 .button-group {
+  margin:0;
   justify-content: row;
 }
 .button-group .secondary-button{
@@ -746,6 +750,17 @@ li {
 }
 .figures-checkbox{
   width: 10%;
+}
+.move-by-center{
+  width: 7%;
+}
+.center{
+  width: 13.5%;
+}
+
+.cordinate-move-to-center{
+  width: 75%;
+  
 }
 
 

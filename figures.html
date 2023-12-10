@@ -50,6 +50,7 @@
                                         id="input-x-A"
                                         type="text"
                                         class="coordinate-input"
+                                        placeholder="0"
                                         oninput="validateInput(this)"
                                 />
                                 <label class="coordinate-label">Y:</label>
@@ -57,6 +58,7 @@
                                         id="input-y-A"
                                         type="text"
                                         class="coordinate-input"
+                                        placeholder="0"
                                         oninput="validateInput(this)"
                                 />
                             </div>
@@ -70,6 +72,7 @@
                                         id="input-x-B"
                                         type="text"
                                         class="coordinate-input"
+                                        placeholder="0"
                                         oninput="validateInput(this)"
                                 />
                                 <label class="coordinate-label">Y:</label>
@@ -77,6 +80,7 @@
                                         id="input-y-B"
                                         type="text"
                                         class="coordinate-input"
+                                        placeholder="0"
                                         oninput="validateInput(this)"
                                 />
                             </div>
@@ -91,6 +95,7 @@
                                         id="input-x-C"
                                         type="text"
                                         class="coordinate-input"
+                                        placeholder="0"
                                         oninput="validateInput(this)"
                                 />
                                 <label class="coordinate-label">Y:</label>
@@ -98,6 +103,7 @@
                                         id="input-y-C"
                                         type="text"
                                         class="coordinate-input"
+                                        placeholder="0"
                                         oninput="validateInput(this)"
                                 />
                             </div>
@@ -148,7 +154,7 @@
                                     id="angle-slider"
                                     type="range"
                                     min="0"
-                                    max="100"
+                                    max="180"
                                     value="0"
                                     step="1"
                                     class="horizontal-slider"
@@ -177,28 +183,30 @@
                             <label id="zoom-slider-label" class="slider-value-label">1</label>
                         </div>
 
-                        <div class="parametr-row">
+                        <div class="parametr-row center-point">
                             <input
                                     type="checkbox"
                                     id="move-by-center-checkbox"
-                                    class="figures-checkbox"
+                                    class="figures-checkbox move-by-center"
                             />
-                            <div class="point-label-container">
-                                <p>Move by center:</p>
+                            <div class="point-label-container-move-by-center">
+                                <p>Move by center to:</p>
                             </div>
-                            <div>
+                            <div class="cordinate-move-to-center">
                                 <label class="coordinate-label">X:</label>
                                 <input
                                         id="input-move-x"
                                         type="text"
-                                        class="coordinate-input"
+                                        class="coordinate-input center"
+                                        placeholder="0"
                                         oninput="validateInput(this)"
                                 />
                                 <label class="coordinate-label">Y:</label>
                                 <input
                                         id="input-move-y"
                                         type="text"
-                                        class="coordinate-input"
+                                        class="coordinate-input center"
+                                        placeholder="0"
                                         oninput="validateInput(this)"
                                 />
                             </div>
