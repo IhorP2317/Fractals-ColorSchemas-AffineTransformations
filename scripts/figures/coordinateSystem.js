@@ -1,7 +1,7 @@
 let canvas = document.getElementById("figures-canvas");
 let ctx = canvas.getContext("2d");
 
-const gridSize = {value:20};
+const gridSize = {value:5};
 const margin = 0;
 
 let vertices = [
@@ -10,10 +10,12 @@ let vertices = [
     [3, 3, 1], //c
     [3, 1, 1]  //d
 ];
+let rectangle = new Rectangle(vertices);
+
 
 function draw() {
     // Clear the canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     // Draw grid
     drawGrid(ctx,
@@ -21,19 +23,22 @@ function draw() {
         margin,
         gridSize
     );
-    drawRectangle(new Rectangle(vertices));
+
+    drawRectangle(rectangle);
 }
 
 
 function updatePoints(xa, ya, xb, yb, xc, yc) {
-    console.log("update points");
+    console.log("Update points method called");
 
-    vertices[0][0] = xa;
-    vertices[0][1] = xb;
-    vertices[1][0] = xb;
-    vertices[1][1] = yb;
-    vertices[2][0] = xc;
-    vertices[2][1] = yc;
+    vertices[0][0] = xa !== '' ? xa: 0;
+    vertices[0][1] = ya !== '' ? ya: 0;
+    vertices[1][0] = xb !== '' ? xb: 0;
+    vertices[1][1] = yb !== '' ? yb: 0;
+    vertices[2][0] = xc !== '' ? xc: 0;
+    vertices[2][1] = yc !== '' ? yc: 0;
+
+    console.log(vertices);
 
     const A = [+vertices[0][0], +vertices[0][1], 1]
     const B = [+vertices[1][0], +vertices[1][1], 1]
@@ -43,17 +48,17 @@ function updatePoints(xa, ya, xb, yb, xc, yc) {
     vertices[3][0] = D[0];
     vertices[3][1] = D[1];
 
-    console.log(vertices);
 
     if (isParallelogram(vertices) === false) {
         window.alert('Not a parallelogram')
         return false;
-    } else {
     }
 
-    vertices = vertices.map((innerArray) => [...innerArray]);
+    console.log(rectangle);
+
     return true;
 }
+
 function gridToCanvas(x, y) {
     const gridStep = canvas.width / (gridSize.value * 2)
     const canvasX = (x + +gridSize.value) * +gridStep
@@ -62,8 +67,6 @@ function gridToCanvas(x, y) {
 }
 
 function drawRectangle(rectangle) {
-    console.log("draw rectangle");
-
     const vertices = rectangle.vertices.map((v) => gridToCanvas(v[0], v[1]))
     ctx.beginPath()
     ctx.moveTo(vertices[0][0], vertices[0][1])
@@ -73,14 +76,9 @@ function drawRectangle(rectangle) {
     ctx.closePath()
     ctx.strokeStyle = '#340B56' // Change color as needed
     ctx.stroke();
-
-    console.log("rectangle drawn");
-
 }
 
 function drawGrid(ctx, width, height, margin, gridSize) {
-    console.log("draw grid");
-
     const effectiveWidth = width - 2 * margin
     const effectiveHeight = height - 2 * margin
     const step = effectiveWidth / (gridSize.value * 2)
@@ -122,8 +120,6 @@ function drawGrid(ctx, width, height, margin, gridSize) {
             ctx.fillText(i.toString(), width / 2 - step, height / 2 - i * step)
         }
     }
-
-    console.log("grid drawn");
 }
 
 
