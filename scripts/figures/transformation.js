@@ -6,7 +6,9 @@ let zoom = 1;
 let x = 0;
 let y = 0;
 
-function startTransformation(rotationChecked, zoomChecked, newRotation, newZoom) {
+function startTransformation(rotationChecked, zoomChecked,
+                             newRotation, newZoom,
+                             moveByCenterChecked, moveByCenterX, moveByCenterY) {
     console.log("Start transformation method called")
 
     if (isDrawing === false) {
@@ -14,16 +16,14 @@ function startTransformation(rotationChecked, zoomChecked, newRotation, newZoom)
 
         rotation = rotationChecked ? newRotation : 0;
         zoom = zoomChecked ? newZoom : 1;
-
-        console.log("rotation: " + rotation);
-        console.log("zoom: " + zoom);
+        zoom = zoomChecked ? newZoom : 1;
+        zoom = zoomChecked ? newZoom : 1;
 
         const center = rectangle.getCenter();
-        x = center[0];
-        y = center[1];
 
-        console.log("x: " + x);
-        console.log("y: " + y);
+        x = moveByCenterChecked ? moveByCenterX : center[0];
+        y = moveByCenterChecked ? moveByCenterY : center[1];
+
         startAnimation();
     } else {
         window.alert('Please wait until the previous movement ends');
@@ -43,16 +43,18 @@ function animate() {
     if (currentFrame < totalFrames) {
         const incrementalRotation = rotation / totalFrames
         const incrementalScale = Math.pow(zoom, 1 / totalFrames)
-
-        draw();
+        const incrementalX = (x) / totalFrames
+        const incrementalY = (y) / totalFrames
 
         rectangle.scaleRotateAndMove(
             incrementalScale,
             incrementalScale,
             incrementalRotation,
-            x,
-            y
+            incrementalX,
+            incrementalY
         )
+
+        draw();
 
         if (canvas) {
             currentFrame++

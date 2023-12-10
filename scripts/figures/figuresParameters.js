@@ -5,6 +5,10 @@ const inputYA = document.getElementById("input-y-A");
 const inputYB = document.getElementById("input-y-B");
 const inputYC = document.getElementById("input-y-C");
 
+const moveByCenterInputX = document.getElementById("input-move-x");
+const moveByCenterInputY = document.getElementById("input-move-y");
+const moveByCenterCheckBox = document.getElementById("move-by-center-checkbox");
+
 const resultXD = document.getElementById("result-x-D");
 const resultYD = document.getElementById("result-y-D");
 
@@ -29,9 +33,9 @@ drawRectangleButton.addEventListener("click", () => {
     console.log("Draw rectangle button clicked");
 
     // Update points and draw new rectangle
-    if(updatePoints(parseInt(inputXA.value), parseInt(inputYA.value),
-                    parseInt(inputXB.value), parseInt(inputYB.value),
-                    parseInt(inputXC.value), parseInt(inputYC.value))) {
+    if(updatePoints(inputXA.value, inputYA.value,
+                    inputXB.value, inputYB.value,
+                    inputXC.value, inputYC.value)) {
 
         setFourthPointValues(vertices[3][0], vertices[3][1]);
     }
@@ -44,7 +48,10 @@ startAnimationButton.addEventListener("click", () => {
         rotateCheckBox.checked,
         zoomCheckBox.checked,
         angleSlider.value,
-        zoomSlider.value
+        zoomSlider.value,
+        moveByCenterCheckBox.checked,
+        moveByCenterInputX.value,
+        moveByCenterInputY.value
     );
 })
 

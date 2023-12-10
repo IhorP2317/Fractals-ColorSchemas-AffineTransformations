@@ -31,12 +31,12 @@ function draw() {
 function updatePoints(xa, ya, xb, yb, xc, yc) {
     console.log("Update points method called");
 
-    vertices[0][0] = xa !== '' ? xa: 0;
-    vertices[0][1] = ya !== '' ? ya: 0;
-    vertices[1][0] = xb !== '' ? xb: 0;
-    vertices[1][1] = yb !== '' ? yb: 0;
-    vertices[2][0] = xc !== '' ? xc: 0;
-    vertices[2][1] = yc !== '' ? yc: 0;
+    vertices[0][0] = xa !== '' ? parseInt(xa): 0;
+    vertices[0][1] = ya !== '' ? parseInt(ya): 0;
+    vertices[1][0] = xb !== '' ? parseInt(xb): 0;
+    vertices[1][1] = yb !== '' ? parseInt(yb): 0;
+    vertices[2][0] = xc !== '' ? parseInt(xc): 0;
+    vertices[2][1] = yc !== '' ? parseInt(yc): 0;
 
     console.log(vertices);
 
@@ -49,12 +49,14 @@ function updatePoints(xa, ya, xb, yb, xc, yc) {
     vertices[3][1] = D[1];
 
 
+    console.log(rectangle);
+
+
     if (isParallelogram(vertices) === false) {
         window.alert('Not a parallelogram')
         return false;
     }
 
-    console.log(rectangle);
 
     return true;
 }
