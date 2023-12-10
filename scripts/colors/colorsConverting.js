@@ -1,29 +1,3 @@
-function rgbToCmyk(rgb) {
-    const red = rgb.red;
-    const green = rgb.green;
-    const blue = rgb.blue;
-
-    let black = 1 - Math.max(red / 255, green / 255, blue / 255);
-    let cyan;
-    let magenta;
-    let yellow;
-
-    if (black < 1) {
-        cyan = (1 - red / 255 - black) / (1 - black);
-        magenta = (1 - green / 255 - black) / (1 - black);
-        yellow = (1 - blue / 255 - black) / (1 - black);
-
-        cyan = Math.round(cyan * 100);
-        magenta = Math.round(magenta * 100);
-        yellow = Math.round(yellow * 100);
-        black = Math.round(black * 100);
-    } else {
-        return {cyan: 0, magenta: 0, yellow: 0, black: 100};
-    }
-
-    return {cyan, magenta, yellow, black};
-}
-
 function rgbToHsl(rgb) {
     // Normalize RGB values to the range [0, 1]
     const r = rgb.red / 255;
@@ -84,7 +58,7 @@ function hslToRgb(hsl, isInRange) {
     if ((Math.abs(hue - saturationHueSliderValue) < 20 ||
             Math.abs(hue - saturationHueSliderValue + 360) < 20 ||
             Math.abs(hue - saturationHueSliderValue - 360) < 20) &&
-            isInRange === true) {
+        isInRange === true) {
         // Adjust saturation if hue is within the specified range
         saturation = saturationSaturationSlider.value;
     }
@@ -142,6 +116,32 @@ function hslToRgb(hsl, isInRange) {
     b = Math.round(b * 255);
 
     return {red: r, green: g, blue: b};
+}
+
+function rgbToCmyk(rgb) {
+    const red = rgb.red;
+    const green = rgb.green;
+    const blue = rgb.blue;
+
+    let black = 1 - Math.max(red / 255, green / 255, blue / 255);
+    let cyan;
+    let magenta;
+    let yellow;
+
+    if (black < 1) {
+        cyan = (1 - red / 255 - black) / (1 - black);
+        magenta = (1 - green / 255 - black) / (1 - black);
+        yellow = (1 - blue / 255 - black) / (1 - black);
+
+        cyan = Math.round(cyan * 100);
+        magenta = Math.round(magenta * 100);
+        yellow = Math.round(yellow * 100);
+        black = Math.round(black * 100);
+    } else {
+        return {cyan: 0, magenta: 0, yellow: 0, black: 100};
+    }
+
+    return {cyan, magenta, yellow, black};
 }
 
 function cmykToRgb(cmyk) {
