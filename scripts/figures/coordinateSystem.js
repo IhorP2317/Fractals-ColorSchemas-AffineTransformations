@@ -49,15 +49,12 @@ function updatePoints(xa, ya, xb, yb, xc, yc) {
     vertices[3][1] = D[1];
 
 
-    console.log(rectangle);
-
-
     if (isParallelogram(vertices) === false) {
         window.alert('Not a parallelogram')
         return false;
     }
 
-
+    rectangle.verticesMatrix = JSON.parse(JSON.stringify(vertices));
     return true;
 }
 

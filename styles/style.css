@@ -111,7 +111,7 @@ li {
 
 .main-content {
   display: flex;
-  padding: 1% 2%;
+  padding: 0 2% 1% 2%;
 }
 
 .introduction {
@@ -659,7 +659,7 @@ li {
 
 .figures-interaction {
   flex: 1;
-  padding: 1% 0 0 3%; /* Remove padding, you can adjust as needed */
+  padding: 0 0 0 3%; /* Remove padding, you can adjust as needed */
 }
 
 .figures-parameters-container {
