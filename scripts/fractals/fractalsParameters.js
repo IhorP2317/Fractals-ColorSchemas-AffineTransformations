@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log("draw cut type");
 
                     loading.style.display = "block";
+                    canvas.style.opacity=0.5;
                     setTimeout(function() {
                         drawCezaroFractal(
                             localStorage.getItem("zoom"),
@@ -99,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         );
 
                         loading.style.display = 'none';
+                        canvas.style.opacity=1;
                     }, 500);
                     break;
 
@@ -106,6 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log("draw sinz + cosz")
 
                     loading.style.display = "block";
+                    canvas.style.opacity=0.5;
                     setTimeout(function() {
                         drawSinCosFractal(
                             localStorage.getItem("zoom"),
@@ -113,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             args[0]);
 
                         loading.style.display = 'none';
+                        canvas.style.opacity=1;
                     }, 500);
 
                     break;
@@ -121,6 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.log("draw Ch z")
 
                     loading.style.display = "block";
+                    canvas.style.opacity=0.5;
                     setTimeout(function() {
                         drawChFractal(
                             localStorage.getItem("zoom"),
@@ -128,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             args[0]);
 
                         loading.style.display = 'none';
+                        canvas.style.opacity=1;
                     }, 500);
                     break;
                 case "none":

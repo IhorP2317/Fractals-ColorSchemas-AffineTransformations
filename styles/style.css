@@ -269,13 +269,19 @@ li {
   justify-content: center; /* Horizontally center children in the flex container */
 }
 
-.fractals-result-container {
-  width: 580px;
-  height: 550px;
-  border: 3px solid #ba4ce6;
-  border-radius: 22px;
-  overflow: hidden;
-}
+  .fractals-result-container {
+    position: relative; /* Set position to relative */
+    width: 580px;
+    height: 550px;
+    border: 3px solid #ba4ce6;
+    border-radius: 22px;
+    overflow: hidden;
+    display: flex; /* Add display: flex to make it a flex container */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+  }
+  
+
 
 .fractals-result-title {
   display: block;
@@ -763,12 +769,12 @@ li {
 }
 
 .lds-spinner {
-  margin: 2% 0 0 35%;
+  position: absolute; /* Set position to absolute */
+  top: 45%; /* Move 50% from the top */
+  left: 72%; /* Move 50% from the left */
+  transform: translate(-50%, -50%); /* Center the spinner */
+  z-index: 1;
   color: official;
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 80px;
 }
 .lds-spinner div {
   transform-origin: 40px 40px;
@@ -783,7 +789,7 @@ li {
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: #EDA1FC;
+  background: rgba(237, 161, 252, 0.8); /* Use a transparent or contrasting color */
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);
