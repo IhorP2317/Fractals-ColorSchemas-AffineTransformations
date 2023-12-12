@@ -5,10 +5,10 @@ const gridSize = {value:5};
 const margin = 0;
 
 let vertices = [
-    [1, 1, 1], //a
-    [1, 3, 1], //b
-    [3, 3, 1], //c
-    [3, 1, 1]  //d
+    [-2, -1, 1], //a
+    [1, 1, 1], //b
+    [2, 0, 1], //c
+    [-1, -2, 1]  //d
 ];
 let rectangle = new Rectangle(vertices);
 

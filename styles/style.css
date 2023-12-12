@@ -789,7 +789,7 @@ li {
   width: 6px;
   height: 18px;
   border-radius: 20%;
-  background: rgba(237, 161, 252, 0.8); /* Use a transparent or contrasting color */
+  background: #591586; /* Use a transparent or contrasting color */
 }
 .lds-spinner div:nth-child(1) {
   transform: rotate(0deg);
