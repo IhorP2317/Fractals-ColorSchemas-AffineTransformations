@@ -11,10 +11,14 @@ document.getElementById("upload-button").addEventListener("click", function () {
 
 //upload chosen image to beforeCanvas
 document.getElementById("upload-input").addEventListener("change", (event) => {
-    console.log("File input changed");
     isSelected = false;
-    uploadImageToBeforeCanvas(event);
+    if(validateFileInput(event)) {
+        uploadImageToBeforeCanvas(event);
+
+    }
 });
+
+
 
 function uploadImageToBeforeCanvas(event) {
     console.log("uploadImageToBeforeCanvas called");
@@ -141,6 +145,19 @@ function getRGBAForPixelOnCanvas(event, canvas) {
         green: data[1],
         blue: data[2],
     };
+}
+
+function validateFileInput(event) {
+    const fileInput = event.target;
+    const filePath = fileInput.value;
+    let allowedExtensions = /\.(jpe?g|png|ico|gif|bmp|tiff?|jtiff|xbm|svgz?|webp|avif)$/i;
+
+    if (!allowedExtensions.exec(filePath)) {
+        window.alert('Invalid file type. Please choose a valid image file.');
+        return false;
+    }
+
+    return true;
 }
 
 

@@ -6,6 +6,7 @@ const iterationSlider = document.getElementById("iteration-slider");
 const hueSlider = document.getElementById("hue-slider");
 const clearButton = document.getElementById("clear-button");
 const chooseFractalTypeSelect = document.getElementById("choose-fractal-type");
+const loading = document.getElementById("loading");
 
 
 const ChZSlidersConfig = {
@@ -88,17 +89,46 @@ document.addEventListener("DOMContentLoaded", function () {
             switch (fractalType) {
                 case "Cut":
                     console.log("draw cut type");
-                    drawCezaroFractal(localStorage.getItem("zoom"), localStorage.getItem("iteration"), args[0]);
+
+                    loading.style.display = "block";
+                    setTimeout(function() {
+                        drawCezaroFractal(
+                            localStorage.getItem("zoom"),
+                            localStorage.getItem("iteration"),
+                            args[0]
+                        );
+
+                        loading.style.display = 'none';
+                    }, 500);
                     break;
 
                 case "sinz + cosz":
                     console.log("draw sinz + cosz")
-                    drawSinCosFractal(localStorage.getItem("zoom"), localStorage.getItem("iteration"), args[0]);
+
+                    loading.style.display = "block";
+                    setTimeout(function() {
+                        drawSinCosFractal(
+                            localStorage.getItem("zoom"),
+                            localStorage.getItem("iteration"),
+                            args[0]);
+
+                        loading.style.display = 'none';
+                    }, 500);
+
                     break;
 
                 case "Ch z":
                     console.log("draw Ch z")
-                    drawChFractal(localStorage.getItem("zoom"), localStorage.getItem("iteration"), args[0]);
+
+                    loading.style.display = "block";
+                    setTimeout(function() {
+                        drawChFractal(
+                            localStorage.getItem("zoom"),
+                            localStorage.getItem("iteration"),
+                            args[0]);
+
+                        loading.style.display = 'none';
+                    }, 500);
                     break;
                 case "none":
                     break;
